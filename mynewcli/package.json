@@ -1,0 +1,38 @@
+{
+  "name": "mynewcli",
+  "description": "my first oclif project",
+  "version": "0.0.0",
+  "author": "BrandonMGH @BrandonMGH",
+  "bin": {
+    "mynewcli": "./bin/run"
+  },
+  "bugs": "https://github.com/BrandonMGH/OclifPractice/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.13.3",
+    "@oclif/plugin-help": "^2.2.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/BrandonMGH/OclifPractice",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "mynewcli"
+  },
+  "repository": "BrandonMGH/OclifPractice",
+  "scripts": {
+    "test": "echo NO TESTS"
+  }
+}
