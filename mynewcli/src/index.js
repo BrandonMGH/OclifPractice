@@ -3,8 +3,8 @@ const {Command, flags} = require('@oclif/command')
 class MynewcliCommand extends Command {
   async run() {
     const {flags} = this.parse(MynewcliCommand)
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from .\\src\\index.js`)
+    const title = flags.title || 'world'
+    this.log(`hello ${title} from .\\src\\index.js`)
   }
 }
 
@@ -19,6 +19,7 @@ MynewcliCommand.flags = {
   // add --help flag to show CLI version
   help: flags.help({char: 'h'}),
   name: flags.string({char: 'n', description: 'name to print'}),
+  title: flags.string({char: 'n', description: 'name to print'}),
 }
 
 module.exports = MynewcliCommand
