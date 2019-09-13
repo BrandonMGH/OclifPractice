@@ -1,15 +1,19 @@
+require('dotenv').config()
 const {Command, flags} = require('@oclif/command')
-var axios = require("axios");
+const axios = require("axios");
+
+const apiKey = process.env.OMDB_API_KEY
+console.log(apiKey)
 
 // const spotTest = require("./spotifyAPI");
 // // console.log(spotTest);
 
 
 function test(postNumber){
-  axios.get(`https://jsonplaceholder.typicode.com/posts/${postNumber}`)
+  axios.get(`http://img.omdbapi.com/?apikey=[yourkey]&`)
   .then(function (response) {
     // handle success
-    console.log(response.data);
+    console.log(response);
   })
   .catch(function (error) {
     // handle error
@@ -22,7 +26,7 @@ class MynewcliCommand extends Command {
     const {flags} = this.parse(MynewcliCommand)
     const title = flags.title || 'world'
     const spotify = flags.spotify
-    test(spotify)
+    test()
     // this.log(`${spotify} from .\\src\\index.js`)
   }
 }
