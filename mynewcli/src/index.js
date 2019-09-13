@@ -3,17 +3,16 @@ const {Command, flags} = require('@oclif/command')
 const axios = require("axios");
 
 const apiKey = process.env.OMDB_API_KEY
-console.log(apiKey)
 
 // const spotTest = require("./spotifyAPI");
 // // console.log(spotTest);
 
 
 function test(postNumber){
-  axios.get(`http://img.omdbapi.com/?apikey=[yourkey]&`)
+  axios.get(`http://www.omdbapi.com/?t=${postNumber}&y=&plot=short&apikey=${apiKey}`)
   .then(function (response) {
     // handle success
-    console.log(response);
+    console.log(response.data);
   })
   .catch(function (error) {
     // handle error
@@ -26,7 +25,7 @@ class MynewcliCommand extends Command {
     const {flags} = this.parse(MynewcliCommand)
     const title = flags.title || 'world'
     const spotify = flags.spotify
-    test()
+    test(spotify)
     // this.log(`${spotify} from .\\src\\index.js`)
   }
 }
