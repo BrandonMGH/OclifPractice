@@ -1,12 +1,15 @@
+require('dotenv').config()
 const {Command, flags} = require('@oclif/command')
-var axios = require("axios");
+const axios = require("axios");
+
+const apiKey = process.env.OMDB_API_KEY
 
 // const spotTest = require("./spotifyAPI");
 // // console.log(spotTest);
 
 
 function test(postNumber){
-  axios.get(`https://jsonplaceholder.typicode.com/posts/${postNumber}`)
+  axios.get(`http://www.omdbapi.com/?t=${postNumber}&y=&plot=short&apikey=${apiKey}`)
   .then(function (response) {
     // handle success
     console.log(response.data);
