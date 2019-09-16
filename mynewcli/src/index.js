@@ -8,7 +8,7 @@ const apiKey = process.env.OMDB_API_KEY
 // // console.log(spotTest);
 
 
-function test(postNumber){
+function movieSelector(postNumber){
   axios.get(`http://www.omdbapi.com/?t=${postNumber}&y=&plot=short&apikey=${apiKey}`)
   .then(function (response) {
     // handle success
@@ -23,9 +23,8 @@ function test(postNumber){
 class MynewcliCommand extends Command {
   async run() {
     const {flags} = this.parse(MynewcliCommand)
-    const title = flags.title || 'world'
-    const spotify = flags.spotify
-    test(spotify)
+    const OMDB = flags.OMDB || "Star+Wars"
+    movieSelector(OMDB || title)
     // this.log(`${spotify} from .\\src\\index.js`)
   }
 }
@@ -41,8 +40,7 @@ MynewcliCommand.flags = {
   // add --help flag to show CLI version
   help: flags.help({char: 'h'}),
   name: flags.string({char: 'n', description: 'name to print'}),
-  title: flags.string({char: 'n', description: 'name to print'}),
-  spotify: flags.string({char: 'n', description: 'name to print'})
+  OMDB: flags.string({char: 'n', description: 'name to print'})
 }
 
 module.exports = MynewcliCommand
