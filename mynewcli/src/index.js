@@ -7,8 +7,12 @@ const apiKey = process.env.OMDB_API_KEY
 // const spotTest = require("./spotifyAPI");
 // // console.log(spotTest);
 
+let adderFunc = (x,y) =>{
+  return x + y 
+}
 
-function movieSelector(postNumber){
+
+let movieSelector = (postNumber) =>{
   axios.get(`http://www.omdbapi.com/?t=${postNumber}&y=&plot=short&apikey=${apiKey}`)
   .then(function (response) {
     // handle success
@@ -44,4 +48,5 @@ MynewcliCommand.flags = {
 }
 
 module.exports = MynewcliCommand
+module.exports = adderFunc
 
